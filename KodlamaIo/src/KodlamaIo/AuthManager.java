@@ -9,6 +9,4 @@ public class AuthManager {
 	public void Register(Student student) {
 		System.out.println("Welcome :  "+ student.firstName);
 	} 
-	
-	
 }
