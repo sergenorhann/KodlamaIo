@@ -24,10 +24,10 @@ public class Main {
 		//		}
 		
 		CourseManager courseManager = new CourseManager();
-		courseManager.Add(course1);
-		courseManager.Add(course2);
-		courseManager.Update(course2);
-		courseManager.Delete(course2);
+		courseManager.add(course1);
+		courseManager.add(course2);
+		courseManager.update(course2);
+		courseManager.delete(course2);
 
 		Student student1 = new Student();
 		student1.id = 1;
@@ -44,15 +44,15 @@ public class Main {
 		student2.Password = "321";
 
 		StudentManager studentManager = new StudentManager();
-		studentManager.Add(student1);
-		studentManager.Add(student2);
-		studentManager.Update(student2);
-		studentManager.Delete(student2);
+		studentManager.add(student1);
+		studentManager.add(student2);
+		studentManager.update(student2);
+		studentManager.delete(student2);
 		
 		
 		AuthManager authManager = new AuthManager();
-		authManager.Register(student1);
-		authManager.Login(student1);
+		authManager.register(student1);
+		authManager.login(student1);
 
 	}
 
