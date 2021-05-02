@@ -2,11 +2,11 @@ package KodlamaIo;
 
 public class AuthManager {
 	
-	public void login(Student student) {
-		System.out.println("Welcome : " + student.firstName);
+	public void login(User user) {
+		System.out.println("Welcome : " + user.getFirstName());
 	}
 	
-	public void register(Student student) {
-		System.out.println("Welcome :  "+ student.firstName);
-	} 
+	public void register(User user){
+		System.out.println("Welcome : " + user.getFirstName());
+	}
 }

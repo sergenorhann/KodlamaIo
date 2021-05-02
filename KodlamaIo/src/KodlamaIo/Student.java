@@ -1,10 +1,15 @@
 package KodlamaIo;
 
-public class Student {
-
-	int id;
-	String firstName;
-	String lastName;
-	String email;
-	String Password;
+public class Student extends User{
+	private int _courseId;
+	
+	
+	public void setCourseId(int courseId)
+	{
+		_courseId=courseId;
+	}
+	public int getCourseId()
+	{
+		return _courseId;
+	}
 }
