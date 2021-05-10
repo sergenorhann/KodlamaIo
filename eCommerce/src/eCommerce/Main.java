@@ -1,6 +1,8 @@
 package eCommerce;
 
+import eCommerce.business.abstracts.AuthService;
 import eCommerce.business.concretes.CustomerManager;
+import eCommerce.business.concretes.GoogleAuthManagerAdapter;
 import eCommerce.core.concretes.EMailLoggerManager;
 import eCommerce.dataAccess.concretes.HipernateCustomerDao;
 import eCommerce.dataAccess.concretes.InMemoryCustomerDao;
@@ -16,6 +18,12 @@ public class Main {
 		CustomerManager customerManager = new CustomerManager(new InMemoryCustomerDao(),new EMailLoggerManager());
 		customerManager.add(customer1);	
 		customerManager.add(customer2);
+		
+		AuthService authService= new GoogleAuthManagerAdapter(customerManager,new EMailLoggerManager());
+		authService.register(customer1);
+		authService.login(customer1);
+		
+		
 	}
 
 }
