@@ -10,13 +10,13 @@ public class Result {
 	}
 	public Result(boolean success,String message)
 	{
-		_success=success;
+		this(success);
 		_message=message;
 	}
 	public boolean isSuccess()
 	{
 		return _success;
-	}
+	} 
 	public String getMessage()
 	{
 		return _message;
