@@ -7,7 +7,7 @@ public class Main {
 		womanGameCalculator.hesapla();
 		womanGameCalculator.gameOver();
 		
-		GameCalculator gameCalculator = new WomanGameCalculator();
+		//GameCalculator gameCalculator = new WomanGameCalculator();
 		
 	}
 

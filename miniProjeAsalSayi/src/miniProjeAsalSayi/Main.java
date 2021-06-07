@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		int number = -2;
-		int remainder = number %2;
+		//int remainder = number %2;
 		
 	
 		boolean isPrime=true;

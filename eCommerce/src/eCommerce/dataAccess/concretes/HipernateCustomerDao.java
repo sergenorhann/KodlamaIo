@@ -1,6 +1,5 @@
 package eCommerce.dataAccess.concretes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import eCommerce.dataAccess.abstracts.CustomerDao;
@@ -29,13 +28,12 @@ public class HipernateCustomerDao implements CustomerDao{
 	
 	@Override
 	public List<Customer> getAll() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public Customer getByMail(String eMail) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -4,12 +4,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		// class'lar referans tiptir ( reference type )
-		CustomerManager customerManager = new CustomerManager();
-		CustomerManager customerManager2 = new CustomerManager();
-		customerManager=customerManager2;
-		customerManager.add();
-		customerManager.remove();
-		customerManager.update();
+		//CustomerManager customerManager = new CustomerManager();
+		//CustomerManager customerManager2 = new CustomerManager();
+		//customerManager=customerManager2;
+		//customerManager.add();
+		//customerManager.remove();
+		//customerManager.update();
 		
 		//value
 		int sayi1 = 10;

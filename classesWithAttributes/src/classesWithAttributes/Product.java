@@ -22,7 +22,7 @@ public class Product {
 	private double _price;
 	private int _stockAmount;
 	private String _renk;
-	private String _kod;
+
 
 	// getter
 	public int getId() {

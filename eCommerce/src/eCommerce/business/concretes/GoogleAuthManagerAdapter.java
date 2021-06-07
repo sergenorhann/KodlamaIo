@@ -27,7 +27,6 @@ public class GoogleAuthManagerAdapter implements AuthService{
 
 	@Override
 	public void register(Customer customer) {
-		// TODO Auto-generated method stub
 		GoogleAuthManager authManager = new GoogleAuthManager(_customerService, _loggerService);
 		authManager.register(customer);
 	}

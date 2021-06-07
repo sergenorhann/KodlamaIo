@@ -1,40 +1,30 @@
-	package kodlamaio.hrms.entities.concretes;
+package kodlamaio.hrms.entities.concretes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="users")
+@Table(name = "users")
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 	@Id
-	@GeneratedValue
-	@Column(name="id")
-	private int _id;
-	@Column(name="email")
-	private String _eMail;
-	@Column(name="password")
-	private String _password;
-	@Column(name="job_position_id")
-	private int _jobPositionId;
-
-	
-	public User()
-	{
-		
-	}
-	
-	public User(int id, String eMail, String password, int jobPositionId) {
-		super();
-		_id = id;
-		_eMail = eMail;
-		_password = password;
-		_jobPositionId = jobPositionId;
-	}
-
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
+	@Column(name = "email")
+	private String eMail;
+	@Column(name = "password")
+	private String password;
+	@Column(name = "job_position_id")
+	private int jobPositionId;
 }

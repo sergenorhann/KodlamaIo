@@ -25,7 +25,6 @@ public class CustomerManager implements CustomerService {
 
 	@Override
 	public void add(Customer customer) {
-		// TODO Auto-generated method stub
 		if (customer.getPassword().length() >= 6) {
 			if (customer.getFirstName().length() >= 2 && customer.getLastName().length() >= 2) {
 				Matcher matcher = pattern.matcher(customer.geteMail());
@@ -54,31 +53,30 @@ public class CustomerManager implements CustomerService {
 
 	@Override
 	public void delete(Customer customer) {
-		// TODO Auto-generated method stub
+
 
 	}
 
 	@Override
 	public void update(Customer customer) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public Customer get(Customer customer) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public List<Customer> getAll() {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
 	@Override
 	public Customer getByMail(String eMail) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

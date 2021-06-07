@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		String mesaj = "Bugün hava çok güzel.";
+		//String mesaj = "Bugün hava çok güzel.";
 		String yeniMesaj = sehirVer();
 		System.out.println(yeniMesaj);
 		int sayi = topla(15, 7);
