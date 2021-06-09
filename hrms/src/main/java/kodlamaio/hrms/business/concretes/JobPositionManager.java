@@ -26,23 +26,24 @@ public class JobPositionManager implements JobPositionService {
 
 	@Override
 	public Result add(JobPosition jobPosition) {
-		return new SuccessResult("");
+		_jobPositionDao.save(jobPosition);
+		return new SuccessResult("Eklendi.");
 	}
 
 	@Override
 	public Result delete(JobPosition jobPosition) {
-		return new SuccessResult("");
+		_jobPositionDao.delete(jobPosition);
+		return new SuccessResult("Silindi.");
 	}
 
 	@Override
 	public Result update(JobPosition jobPosition) {
-		return new SuccessResult("");
+		
+		return new SuccessResult("Güncellendi");
 	}
 
 	@Override
 	public DataResult<List<JobPosition>> getAll() {
-		System.out.println(_jobPositionDao.findAll());
-		System.out.println("--" + _jobPositionDao.count());
 		return new SuccessDataResult<List<JobPosition>>(_jobPositionDao.findAll());
 	}
 

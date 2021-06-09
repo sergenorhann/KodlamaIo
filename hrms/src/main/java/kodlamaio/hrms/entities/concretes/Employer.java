@@ -30,5 +30,6 @@ public class Employer {
 	private String website;
 	@Column(name="phone_number")
 	private String phoneNumber;
-	
+	@Column(name="confirm_id")
+	private int confirmId;
 }

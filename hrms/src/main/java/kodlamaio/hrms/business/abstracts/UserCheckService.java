@@ -1,7 +1,7 @@
 package kodlamaio.hrms.business.abstracts;
 
-import kodlamaio.hrms.entities.concretes.JobSeeker;
+import java.time.LocalDate;
 
 public interface UserCheckService {
-	public boolean checkIfRealPerson(JobSeeker jobSeeker);
+	public boolean checkIfRealPerson(String nationalityId, String firstName, String lastName, LocalDate dateOfBirth);
 }
