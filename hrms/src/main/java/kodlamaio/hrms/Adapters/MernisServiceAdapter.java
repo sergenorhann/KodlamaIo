@@ -7,7 +7,7 @@ import java.util.Locale;
 import kodlamaio.hrms.ConnectedService.MernisServiceReference.KPSPublicSoapProxy;
 import kodlamaio.hrms.business.abstracts.UserCheckService;
 
-public class MernisServiceAdapter implements UserCheckService {
+public class MernisServiceAdapter  implements UserCheckService{
 
 	@Override
 	public boolean checkIfRealPerson(String nationalityId, String firstName, String lastName, LocalDate dateOfBirth) {
@@ -22,5 +22,6 @@ public class MernisServiceAdapter implements UserCheckService {
 		}
 		return false;
 	}
+
 
 }

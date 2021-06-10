@@ -24,14 +24,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="candidates")
+@PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "id")
 
-public class Candidate{
+public class Candidate extends User{
 
-	@Id
-	@Column(name="user_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int userId;
-	
 	@Column(name = "first_name")
 	private String firstName;
 	
@@ -43,6 +39,5 @@ public class Candidate{
 	
 	@Column(name = "date_of_birth")
 	private LocalDate dateOfBirth;
-	
 
 }
