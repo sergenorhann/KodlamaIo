@@ -17,7 +17,7 @@ import kodlamaio.hrms.entities.concretes.User;
 @RestController
 @RequestMapping("/api/users")
 public class UsersContoller {
-/*
+
 	private UserService _userService;
 
 	@Autowired
@@ -34,5 +34,5 @@ public class UsersContoller {
 	@PostMapping("/add")
 	public Result add(@RequestBody User user) {
 		return _userService.add(user);
-	}*/
+	}
 }

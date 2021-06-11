@@ -2,7 +2,6 @@ package kodlamaio.hrms.api.controllers;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,8 +32,13 @@ public class CandidatesController {
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody Candidate candidate) {
-		return _candidateService.add(candidate);
+	public Result add(@RequestBody Candidate candidate, String passwordAgain) {
+		return _candidateService.add(candidate, passwordAgain);
+	}
+
+	@PostMapping("/delete")
+	public Result delete(@RequestBody Candidate candidate) {
+		return _candidateService.delete(candidate);
 	}
 
 }

@@ -8,7 +8,7 @@ import kodlamaio.hrms.entities.concretes.Candidate;
 
 public interface CandidateService {
 	
-	Result add(Candidate candidate);
+	Result add(Candidate candidate, String passwordAgain);
 
 	Result delete(Candidate candidate);
 

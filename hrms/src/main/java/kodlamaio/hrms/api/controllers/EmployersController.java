@@ -32,7 +32,7 @@ public class EmployersController {
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody Employer employer) {
-		return _employerService.add(employer);
+	public Result add(@RequestBody Employer employer, String passwordAgain) {
+		return _employerService.add(employer,passwordAgain);
 	}
 }

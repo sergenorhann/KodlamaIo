@@ -7,12 +7,12 @@ import kodlamaio.hrms.core.utilies.results.Result;
 import kodlamaio.hrms.entities.concretes.User;
 
 public interface UserService {
-/*
+
 	Result add(User user);
 
 	Result delete(User user);
 
 	Result update(User user);
 
-	DataResult<List<User>> getAll();*/
+	DataResult<List<User>> getAll();
 }

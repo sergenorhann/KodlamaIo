@@ -8,7 +8,7 @@ import kodlamaio.hrms.entities.concretes.Employer;
 
 public interface EmployerService {
 
-	Result add(Employer employer);
+	Result add(Employer employer, String passwordAgain);
 
 	Result delete(Employer employer);
 

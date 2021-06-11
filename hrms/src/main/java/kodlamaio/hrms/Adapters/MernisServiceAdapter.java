@@ -4,9 +4,12 @@ import java.rmi.RemoteException;
 import java.time.LocalDate;
 import java.util.Locale;
 
+import org.springframework.stereotype.Service;
+
 import kodlamaio.hrms.ConnectedService.MernisServiceReference.KPSPublicSoapProxy;
 import kodlamaio.hrms.business.abstracts.UserCheckService;
 
+@Service
 public class MernisServiceAdapter  implements UserCheckService{
 
 	@Override

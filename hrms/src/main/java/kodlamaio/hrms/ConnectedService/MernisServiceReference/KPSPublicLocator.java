@@ -9,7 +9,9 @@ package kodlamaio.hrms.ConnectedService.MernisServiceReference;
 
 public class KPSPublicLocator extends org.apache.axis.client.Service implements kodlamaio.hrms.ConnectedService.MernisServiceReference.KPSPublic {
 
-    public KPSPublicLocator() {
+
+
+	public KPSPublicLocator() {
     }
 
 
