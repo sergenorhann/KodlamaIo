@@ -5,6 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		sayiBulmaca();
+		System.out.println("");
 
 	}
 
@@ -18,6 +19,7 @@ public class Main {
 			}
 		}
 		mesajVer("Sayı Mevcut Değil : " + aranacak);
+		
 	}
 	
 	public static void mesajVer(String mesaj) {
