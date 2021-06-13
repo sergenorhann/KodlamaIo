@@ -23,11 +23,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="candidates")
+@Table(name="job_seekers")
 @EqualsAndHashCode(callSuper = false)
 @PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "id")
 
-public class Candidate extends User{
+public class JobSeeker extends User{
 
 	@Column(name = "first_name")
 	private String firstName;

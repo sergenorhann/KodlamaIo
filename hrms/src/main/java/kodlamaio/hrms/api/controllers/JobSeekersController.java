@@ -9,36 +9,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlamaio.hrms.business.abstracts.CandidateService;
+import kodlamaio.hrms.business.abstracts.JobSeekerService;
 import kodlamaio.hrms.core.utilies.results.DataResult;
 import kodlamaio.hrms.core.utilies.results.Result;
-import kodlamaio.hrms.entities.concretes.Candidate;
+import kodlamaio.hrms.entities.concretes.JobSeeker;
 
 @RestController
 @RequestMapping("/api/candidates")
-public class CandidatesController {
+public class JobSeekersController {
 
-	private CandidateService _candidateService;
+	private JobSeekerService _jobSeekerService;
 
 	@Autowired
-	public CandidatesController(CandidateService candidateService) {
+	public JobSeekersController(JobSeekerService jobSeekerService) {
 		super();
-		_candidateService = candidateService;
+		_jobSeekerService = jobSeekerService;
 	}
 
 	@GetMapping("/getall")
-	public DataResult<List<Candidate>> getAll() {
-		return _candidateService.getall();
+	public DataResult<List<JobSeeker>> getAll() {
+		return _jobSeekerService.getall();
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody Candidate candidate, String passwordAgain) {
-		return _candidateService.add(candidate, passwordAgain);
+	public Result add(@RequestBody JobSeeker candidate, String passwordAgain) {
+		return _jobSeekerService.add(candidate, passwordAgain);
 	}
 
 	@PostMapping("/delete")
-	public Result delete(@RequestBody Candidate candidate) {
-		return _candidateService.delete(candidate);
+	public Result delete(@RequestBody JobSeeker candidate) {
+		return _jobSeekerService.delete(candidate);
 	}
 
 }

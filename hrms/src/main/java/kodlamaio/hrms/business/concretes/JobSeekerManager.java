@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kodlamaio.hrms.business.abstracts.CandidateService;
+import kodlamaio.hrms.business.abstracts.JobSeekerService;
 import kodlamaio.hrms.business.abstracts.UserCheckService;
 import kodlamaio.hrms.core.utilies.results.DataResult;
 import kodlamaio.hrms.core.utilies.results.ErrorResult;
@@ -13,66 +13,66 @@ import kodlamaio.hrms.core.utilies.results.Result;
 import kodlamaio.hrms.core.utilies.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilies.results.SuccessResult;
 import kodlamaio.hrms.core.utilies.validation.abstracts.EmailValidationService;
-import kodlamaio.hrms.dataAccess.abstracts.CandidateDao;
-import kodlamaio.hrms.entities.concretes.Candidate;
+import kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
+import kodlamaio.hrms.entities.concretes.JobSeeker;
 
 @Service
-public class CandidateManager implements CandidateService {
+public class JobSeekerManager implements JobSeekerService {
 
-	private CandidateDao _candidateDao;
+	private JobSeekerDao _jobSeekerDao;
 	private EmailValidationService _emailValidationService;
 	private UserCheckService _userCheckService;
 
 	@Autowired
-	public CandidateManager(CandidateDao candidateDao, EmailValidationService emailValidationService,
+	public JobSeekerManager(JobSeekerDao jobSeekerDao, EmailValidationService emailValidationService,
 			UserCheckService userCheckService) {
 		super();
-		_candidateDao = candidateDao;
+		_jobSeekerDao = jobSeekerDao;
 		_emailValidationService = emailValidationService;
 		_userCheckService = userCheckService;
 	}
 
 	@Override
-	public Result add(Candidate candidate, String passwordAgain) {
+	public Result add(JobSeeker jobseeker, String passwordAgain) {
 
-		if (candidate.getFirstName().isEmpty() || candidate.getLastName().isEmpty() || candidate.getEmail().isEmpty()
-				|| candidate.getPassword().isEmpty() || candidate.getNationalityId().isEmpty()
-				|| candidate.getDateOfBirth() == null) {
+		if (jobseeker.getFirstName().isEmpty() || jobseeker.getLastName().isEmpty() || jobseeker.getEmail().isEmpty()
+				|| jobseeker.getPassword().isEmpty() || jobseeker.getNationalityId().isEmpty()
+				|| jobseeker.getDateOfBirth() == null) {
 			return new ErrorResult("Hiçbir alan bos bırakılamaz!");
 
-		} else if (!checkIfRealPerson(candidate)) {
+		} else if (!checkIfRealPerson(jobseeker)) {
 			return new ErrorResult("Hatalı kişi");
-		} else if (_candidateDao.findByEmail(candidate.getEmail()) != null) {
+		} else if (_jobSeekerDao.getByEmail(jobseeker.getEmail()) != null) {
 			return new ErrorResult("Bu email zaten sisteme kayıtlı");
-		} else if (_candidateDao.findByNationalityId(candidate.getNationalityId()) != null) {
+		} else if (_jobSeekerDao.getByNationalityId(jobseeker.getNationalityId()) != null) {
 			return new ErrorResult("Bu TcNo zaten sisteme kayıtlı");
-		} else if (!passwordAgain.equals(candidate.getPassword())) {
+		} else if (!passwordAgain.equals(jobseeker.getPassword())) {
 			return new ErrorResult("Şifreler uyumsuz");
-		} else if (!_emailValidationService.sendMail(candidate)) {
+		} else if (!_emailValidationService.sendMail(jobseeker)) {
 			return new ErrorResult("E-posta doğrulaması başarısız");
 		}
-		_candidateDao.save(candidate);
+		_jobSeekerDao.save(jobseeker);
 		return new SuccessResult("Eklendi");
 
 	}
 
 	@Override
-	public Result delete(Candidate candidate) {
-		_candidateDao.delete(candidate);
+	public Result delete(JobSeeker jobseeker) {
+		_jobSeekerDao.delete(jobseeker);
 		return new SuccessResult("Silindi");
 	}
 
 	@Override
-	public Result update(Candidate candidate) {
+	public Result update(JobSeeker jobseeker) {
 		return new SuccessResult("");
 	}
 
 	@Override
-	public DataResult<List<Candidate>> getall() {
-		return new SuccessDataResult<List<Candidate>>(_candidateDao.findAll());
+	public DataResult<List<JobSeeker>> getall() {
+		return new SuccessDataResult<List<JobSeeker>>(_jobSeekerDao.findAll());
 	}
 
-	public boolean checkIfRealPerson(Candidate candidate) {
+	public boolean checkIfRealPerson(JobSeeker candidate) {
 		return true;
 		// return _userCheckService.checkIfRealPerson(candidate.getNationalityId(),
 		// candidate.getFirstName(), candidate.getLastName(),
