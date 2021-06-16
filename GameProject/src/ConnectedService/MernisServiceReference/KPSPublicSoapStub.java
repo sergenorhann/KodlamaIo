@@ -111,7 +111,7 @@ public class KPSPublicSoapStub extends org.apache.axis.client.Stub implements KP
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(TCKimlikNo), ad, soyad, new java.lang.Integer(dogumYili)});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] { TCKimlikNo, ad, soyad, dogumYili});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;

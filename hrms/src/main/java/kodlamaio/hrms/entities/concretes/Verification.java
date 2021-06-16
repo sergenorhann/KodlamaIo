@@ -1,16 +1,14 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.util.List;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,19 +18,27 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "job_positions")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobadvertisements"})
+@Table(name="verifications")
 
-public class JobPosition {
+public class Verification {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name="id")
 	private int id;
 	
-	@Column(name = "name")
-	private String name;
+	@Column(name="is_verification")
+	private boolean isVerification;
 	
-	@OneToMany(mappedBy = "jobpositions")
-	private List<JobAdvertisement> jobAdvertisements;
+	@Column(name="user_id")
+	private int userId;
+	
+	@Column(name="code")
+	private String code;
+	
+	@Column(name="date_of_verification")
+	private LocalDate dateOfVerification;
+	
+	
+	
 }

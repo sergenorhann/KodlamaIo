@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "categories")
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","products"})
+
 public class Category {
 	@Id
 	@Column(name = "category_id")

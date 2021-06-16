@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobSeekerService;
-import kodlamaio.hrms.business.abstracts.UserCheckService;
 import kodlamaio.hrms.core.utilies.results.DataResult;
 import kodlamaio.hrms.core.utilies.results.ErrorResult;
 import kodlamaio.hrms.core.utilies.results.Result;
@@ -21,15 +20,15 @@ public class JobSeekerManager implements JobSeekerService {
 
 	private JobSeekerDao _jobSeekerDao;
 	private EmailValidationService _emailValidationService;
-	private UserCheckService _userCheckService;
+
 
 	@Autowired
-	public JobSeekerManager(JobSeekerDao jobSeekerDao, EmailValidationService emailValidationService,
-			UserCheckService userCheckService) {
+	public JobSeekerManager(JobSeekerDao jobSeekerDao, EmailValidationService emailValidationService
+		) {
 		super();
 		_jobSeekerDao = jobSeekerDao;
 		_emailValidationService = emailValidationService;
-		_userCheckService = userCheckService;
+
 	}
 
 	@Override
