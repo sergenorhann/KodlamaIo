@@ -3,6 +3,7 @@ package kodlamaio.hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobAdvertisementService;
@@ -20,6 +21,7 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 
 	@Autowired
 	public JobAdvertisementManager(JobAdvertisementDao jobAdvertisementDao) {
+		super();
 		_jobAdvertisementDao = jobAdvertisementDao;
 	}
 
@@ -42,7 +44,18 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 
 	@Override
 	public DataResult<List<JobAdvertisement>> getAll() {
-		return new SuccessDataResult<List<JobAdvertisement>>(_jobAdvertisementDao.findAll());
+		return new SuccessDataResult<List<JobAdvertisement>>(_jobAdvertisementDao.findAll(), "Listelendi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> getAllByStatus() {
+		return new SuccessDataResult<List<JobAdvertisement>>(_jobAdvertisementDao.getAllByStatus(true));
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> getAllByIsActiveSortedDate() {
+		return new SuccessDataResult<List<JobAdvertisement>>(
+				_jobAdvertisementDao.findAll(Sort.by(Sort.Direction.ASC, "appealExpirationDate")));
 	}
 
 }

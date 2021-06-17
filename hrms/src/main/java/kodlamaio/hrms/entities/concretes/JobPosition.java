@@ -33,6 +33,6 @@ public class JobPosition {
 	@Column(name = "name")
 	private String name;
 	
-	@OneToMany(mappedBy = "jobpositions")
+	@OneToMany(mappedBy = "jobPosition")
 	private List<JobAdvertisement> jobAdvertisements;
 }

@@ -39,7 +39,7 @@ public class Employer extends User{
 	@Column(name="confirm_id")
 	private int confirmId;
 	
-	@OneToMany(mappedBy = "employers")
+	@OneToMany(mappedBy = "employer")
 	private List<JobAdvertisement> jobAdvertisements;
 	
 }

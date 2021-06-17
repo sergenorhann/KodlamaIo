@@ -26,11 +26,6 @@ public class JobSeekersController {
 		_jobSeekerService = jobSeekerService;
 	}
 
-	@GetMapping("/getall")
-	public DataResult<List<JobSeeker>> getAll() {
-		return _jobSeekerService.getall();
-	}
-
 	@PostMapping("/add")
 	public Result add(@RequestBody JobSeeker candidate, String passwordAgain) {
 		return _jobSeekerService.add(candidate, passwordAgain);
@@ -40,5 +35,16 @@ public class JobSeekersController {
 	public Result delete(@RequestBody JobSeeker candidate) {
 		return _jobSeekerService.delete(candidate);
 	}
+
+	@PostMapping("/update")
+	public Result update(@RequestBody JobSeeker candidate) {
+		return _jobSeekerService.update(candidate);
+	}
+	
+	@GetMapping("/getall")
+	public DataResult<List<JobSeeker>> getAll() {
+		return _jobSeekerService.getall();
+	}
+
 
 }

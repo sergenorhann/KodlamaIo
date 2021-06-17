@@ -26,14 +26,24 @@ public class JobPositionsContoller {
 		_jobPositionService = jobPositionService;
 	}
 
-	@GetMapping("/getall")
-	public DataResult<List<JobPosition>> getAll() {
-		return _jobPositionService.getAll();
-	}
-
 	@PostMapping("/add")
 	public Result add(@RequestBody JobPosition jobPosition) {
 		return _jobPositionService.add(jobPosition);
+	}
+
+	@PostMapping("/delete")
+	public Result delete(@RequestBody JobPosition jobPosition) {
+		return _jobPositionService.delete(jobPosition);
+	}
+
+	@PostMapping("/update")
+	public Result update(@RequestBody JobPosition jobPosition) {
+		return _jobPositionService.update(jobPosition);
+	}
+
+	@GetMapping("/getall")
+	public DataResult<List<JobPosition>> getAll() {
+		return _jobPositionService.getAll();
 	}
 
 }

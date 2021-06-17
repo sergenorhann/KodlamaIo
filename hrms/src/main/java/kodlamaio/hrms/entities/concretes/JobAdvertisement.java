@@ -11,9 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -21,23 +23,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="job_advertisements")
+@EqualsAndHashCode(callSuper = false)
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobPosition", "city"}) 
+
 public class JobAdvertisement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-//	@Column(name="job_position_id")
-//	private int jobPositionId;
-	
 	@Column(name="description")
 	private String description;
-	
-//	@Column(name="employer_id")
-//	private int employerId;
-	
-//	@Column(name="city_id")
-//	private int cityId;
 	
 	@Column(name="total_vacancies")
 	private int totalVacancies;

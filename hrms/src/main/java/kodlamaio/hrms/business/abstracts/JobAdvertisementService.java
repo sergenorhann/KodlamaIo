@@ -15,4 +15,8 @@ public interface JobAdvertisementService {
 	Result update(JobAdvertisement jobAdvertisement);
 
 	DataResult<List<JobAdvertisement>> getAll();
+
+	DataResult<List<JobAdvertisement>> getAllByStatus();
+
+	DataResult<List<JobAdvertisement>> getAllByIsActiveSortedDate();
 }

@@ -38,7 +38,7 @@ public class EmployerManager implements EmployerService {
 				|| employer.getWebsite().isEmpty() || employer.getEmail().isEmpty()
 				|| employer.getPassword().isEmpty()) {
 			return new ErrorResult("Hiçbir alan bos bırakılamaz!");
-		} else if (_employerDao.findByEmail(employer.getEmail()) != null) {
+		} else if (_employerDao.getByEmail(employer.getEmail()) != null) {
 			return new ErrorResult("Bu email zaten sisteme kayıtlı");
 		} else if (!passwordAgain.equals(employer.getPassword())) {
 			return new ErrorResult("Şifreler uyumsuz");

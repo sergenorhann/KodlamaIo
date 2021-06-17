@@ -26,13 +26,23 @@ public class EmployersController {
 		_employerService = employerService;
 	}
 
+	@PostMapping("/add")
+	public Result add(@RequestBody Employer employer, String passwordAgain) {
+		return _employerService.add(employer, passwordAgain);
+	}
+
+	@PostMapping("/delete")
+	public Result delete(@RequestBody Employer employer) {
+		return _employerService.delete(employer);
+	}
+
+	@PostMapping("/update")
+	public Result update(@RequestBody Employer employer) {
+		return _employerService.update(employer);
+	}
+
 	@GetMapping("/getall")
 	public DataResult<List<Employer>> getAll() {
 		return _employerService.getAll();
-	}
-
-	@PostMapping("/add")
-	public Result add(@RequestBody Employer employer, String passwordAgain) {
-		return _employerService.add(employer,passwordAgain);
 	}
 }
