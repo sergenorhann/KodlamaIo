@@ -4,18 +4,20 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.domain.Sort;
 
 import kodlamaio.hrms.entities.concretes.JobAdvertisement;
 
 public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement, Integer> {
 	
-	List<JobAdvertisement> getByEmployerId(int employerId);
+	@Query("From JobAdvertisement where status = true")
 	
-	List<JobAdvertisement> getAllByStatus(boolean status);
+	List<JobAdvertisement> getByStatusAndReleaseDate(Sort sort);
+	
+	List<JobAdvertisement> getByStatus(boolean status);
 	
 	@Query("From JobAdvertisement where status = true and employer_id =:id")
-	List<JobAdvertisement> getEmployersActiveJobAdvertisement(int id);
-
-	boolean existsById(int id);
+	List<JobAdvertisement> getByEmployersIdAndStatus(int id);
+	
 	
 }

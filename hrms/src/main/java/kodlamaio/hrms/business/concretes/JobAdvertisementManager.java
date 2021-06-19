@@ -48,14 +48,20 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 	}
 
 	@Override
-	public DataResult<List<JobAdvertisement>> getAllByStatus() {
-		return new SuccessDataResult<List<JobAdvertisement>>(_jobAdvertisementDao.getAllByStatus(true));
+	public DataResult<List<JobAdvertisement>> getByStatusAndReleaseDate() {
+		return new SuccessDataResult<List<JobAdvertisement>>(
+				_jobAdvertisementDao.getByStatusAndReleaseDate(Sort.by(Sort.Direction.ASC, "releaseDate")));
 	}
 
 	@Override
-	public DataResult<List<JobAdvertisement>> getAllByIsActiveSortedDate() {
+	public DataResult<List<JobAdvertisement>> getByStatus() {
+		return new SuccessDataResult<List<JobAdvertisement>>(_jobAdvertisementDao.getByStatus(true));
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> getByEmployersIdAndStatus(int employerId) {
 		return new SuccessDataResult<List<JobAdvertisement>>(
-				_jobAdvertisementDao.findAll(Sort.by(Sort.Direction.ASC, "appealExpirationDate")));
+				_jobAdvertisementDao.getByEmployersIdAndStatus(employerId));
 	}
 
 }

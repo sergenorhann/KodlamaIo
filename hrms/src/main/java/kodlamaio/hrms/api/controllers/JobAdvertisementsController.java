@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.JobAdvertisementService;
@@ -36,24 +37,30 @@ public class JobAdvertisementsController {
 	public Result delete(@RequestBody JobAdvertisement jobAdvertisement) {
 		return _jobAdvertisementService.delete(jobAdvertisement);
 	}
-	
+
 	@PostMapping("/update")
 	public Result update(@RequestBody JobAdvertisement jobAdvertisement) {
 		return _jobAdvertisementService.update(jobAdvertisement);
 	}
-	
+
 	@GetMapping("/getall")
 	public DataResult<List<JobAdvertisement>> getAll() {
 		return _jobAdvertisementService.getAll();
 	}
 
-	@GetMapping("/getallbystatus")
-	public DataResult<List<JobAdvertisement>> getAllByStatus() {
-		return _jobAdvertisementService.getAllByStatus();
-	}
-	
-	@GetMapping("/getallbyisactivesorteddate")
+	@GetMapping("/getbystatusandreleasedate")
 	public DataResult<List<JobAdvertisement>> getAllByIsActiveSortedDate() {
-		return _jobAdvertisementService.getAllByIsActiveSortedDate();
+		return _jobAdvertisementService.getByStatusAndReleaseDate();
 	}
+
+	@GetMapping("/getbystatus")
+	public DataResult<List<JobAdvertisement>> getByStatus() {
+		return _jobAdvertisementService.getByStatus();
+	}
+
+	@GetMapping("/getbyemployersidandstatus")
+	public DataResult<List<JobAdvertisement>> getByEmployersIdAndStatus(@RequestParam int employerId) {
+		return _jobAdvertisementService.getByEmployersIdAndStatus(employerId);
+	}
+
 }

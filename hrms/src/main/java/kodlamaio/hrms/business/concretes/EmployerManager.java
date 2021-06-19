@@ -56,6 +56,8 @@ public class EmployerManager implements EmployerService {
 	public Result delete(Employer employer) {
 		_employerDao.delete(employer);
 		return new SuccessResult("Silindi.");
+		
+		//olmayan veriyide silindi gösteriyor??
 	}
 
 	@Override
